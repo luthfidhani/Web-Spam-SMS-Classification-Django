@@ -1,0 +1,42 @@
+body{
+    background:rgb(62,102,208)
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
+.title{
+    color:#fff;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.btn{
+    background:rgb(88,175,249);
+    color: white;
+    width: 150px;
+    border-radius: 0px 50px 50px 0px;
+    border-color: rgb(88,175,249);
+}
+.btn:hover{
+    background:rgb(44, 132, 209);
+    border-color: rgb(44, 132, 209);
+
+}
+
+.input{
+    height:50px;
+    /* border-radius: 50px 0px 0px 50px; */
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+
+}
+
+.hasil{
+    font-family: 'Montserrat', sans-serif;
+}
+
+.isi-sms{
+    color: rgb(99, 99, 99);
+}
+
+.note{
+    color: rgb(155,158,174);
+}

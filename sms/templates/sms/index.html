@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static '/spam_sms/css/style.css' %}">
+    <title>Spam SMS Detection</title>
+</head>
+<body class=''>
+    <div class="container">
+        <h1 class="d-flex justify-content-center title mt-5">Deteksi Spam SMS</h1>
+        <div class="mt-5">
+            <form action="{% url 'analyze' %}" method="post">
+                <div class="input-group mb-3 ">
+                    <input type="text" class="form-control input" name="sms-text" placeholder="Tempel isi SMS disini!" aria-label="Tempel isi SMS disini!" aria-describedby="button-addon2">
+                    {% csrf_token %}
+                    <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Analisis</button>
+                </div>
+            </form>
+        </div>
+        {% if data %}      
+        <div class="card mt-4">
+            <div class="card-body">
+                <h2 class="d-flex justify-content-center hasil mt-2 {{data.status}} ">{{ data.pred }}</h2>
+                <p class='isi-sms mt-3'>{{ data.text }}</p>
+                <p class='note'>*Note: Hasil analisis oleh sistem belum tentu benar! Yaa.. namanya juga komputer</p>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+    
+</body>
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+</html>
